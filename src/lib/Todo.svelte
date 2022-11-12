@@ -1,7 +1,7 @@
 <script>
   let todos = []
 
-  function handleEnter(e) {
+  const handleEnter = (e) => {
     if(e.key === 'Enter') {
       addTodo()
     }
