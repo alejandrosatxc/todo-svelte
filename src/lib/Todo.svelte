@@ -1,15 +1,19 @@
 <script>
   let todos = []
-  window.addEventListener('keyup', function (e) {
+
+  function handleEnter(e) {
     if(e.key === 'Enter') {
       addTodo()
     }
-  })
+  }
   const addTodo = () => {
     todos = [...todos, document.querySelector('input').value]
     document.querySelector('input').value = ''
   }
 </script>
+
+<!-- Add eventListener to window -->
+<svelte:window on:keyup={handleEnter}/>
 
 <main>
   <label for="todo-input">Todo: </label>
