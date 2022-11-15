@@ -9,7 +9,7 @@
     if (e.key === "Enter") {
       addTodo();
     }
-  }
+  };
 
   //Add a Todo item to the list of Todos and save it in localStorage
   const addTodo = () => {
@@ -30,15 +30,17 @@
       document.querySelector("input").value = "";
       document.querySelector("input").focus();
     }
-  }
+  };
 
   //Remove a Todo from the list
   const deleteTodo = (e) => {
     //Remove specific item from global array of todos by id
-    todos = todos.filter((item) => item.id !== Number(e.target.parentElement.id))
+    todos = todos.filter(
+      (item) => item.id !== Number(e.target.parentElement.id)
+    );
     //Update localStorage
-    localStorage.setItem("todoApp", JSON.stringify(todos))
-  }
+    localStorage.setItem("todoApp", JSON.stringify(todos));
+  };
 
   const loadTodos = () => {
     //check for todos in local storage
@@ -50,9 +52,9 @@
       //Set global array of todos to whatever was read from localStorage
       todos = JSON.parse(data);
       //Update index TODO: find a better way to do this
-      i = todos.length
+      i = todos.length;
     }
-  }
+  };
 
   loadTodos();
 </script>
@@ -69,7 +71,8 @@
       <li id={todo.id}>
         {todo.task}
         <button on:click={deleteTodo}>
-          <Fa icon={faXmark} />
+          <!-- <Fa icon={faXmark} /> -->
+          X
         </button>
       </li>
     {/each}
@@ -102,4 +105,5 @@
     padding: 0 10px;
     background-color: navy;
   }
+
 </style>
